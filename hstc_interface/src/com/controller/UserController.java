@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
 import com.pojo.TUser;
 import com.service.UserService;
 
@@ -15,11 +16,29 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
+	/**
+	 * 插入微信登录用户信息
+	 * @param openid
+	 * @param nickName
+	 * @param avatarUrl
+	 * @param province
+	 * @param city
+	 * @return
+	 * @throws IOException
+	 */
 	@RequestMapping(value="/insert_user", produces="application/json;charset=utf-8")
 	@ResponseBody
-	public String insert_user(String openid, String nickName, String avatarUrl) throws IOException{
+	public String insert_user(String openid, String nickName, String avatarUrl, String province, String city ) throws IOException{
 		
 		nickName= new String(nickName.getBytes("ISO-8859-1"),"UTF-8");
+		province= new String(province.getBytes("ISO-8859-1"),"UTF-8");
+		city= new String(city.getBytes("ISO-8859-1"),"UTF-8");
+		
+		System.out.println(openid);
+		System.out.println(nickName);
+		System.out.println(avatarUrl);
+		System.out.println(province);
+		System.out.println(city);
 		
 		/**
 		 * 先查询数据库中是否存在此用户，若有则不插入，若没有，则把当前用户信息插入数据库
@@ -31,10 +50,20 @@ public class UserController {
 			tUser.setAvatarurl(avatarUrl);
 			tUser.setNickname(nickName);
 			tUser.setOpenid(openid);
+			tUser.setProvince(province);
+			tUser.setCity(city);
 			userService.insert_user(tUser);
 			return "true";
 		}else{
-			return "ture";
+			return "true";
 		}
+	}
+	
+	@RequestMapping(value="/queryByOpenid",produces="application/json;charset=utf-8")
+	@ResponseBody
+	public String queryByOpenid(String openid)throws IOException{
+		TUser userone = userService.queryByOpenid(openid);
+		Gson gson = new Gson();
+		return gson.toJson(userone);
 	}
 }
