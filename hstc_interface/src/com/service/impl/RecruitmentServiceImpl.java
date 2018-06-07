@@ -50,4 +50,12 @@ public class RecruitmentServiceImpl implements RecruitmentService {
 		criteria.andCollegeIdEqualTo(collegeId);
 		return tRecruitmentMapper.selectByExampleWithBLOBs(example);
 	}
+	
+	public List<TRecruitment> queryByTitle(String title){
+//		TRecruitmentExample example = new TRecruitmentExample();
+//		Criteria criteria = example.createCriteria();
+//		criteria.andTitleEqualTo(title);
+//		return tRecruitmentMapper.selectByExampleWithBLOBs(example);
+		return tRecruitmentMapper.fuzzyQueryByTitle(title);
+	}
 }

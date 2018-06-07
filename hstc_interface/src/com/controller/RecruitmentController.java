@@ -24,6 +24,7 @@ import com.pojo.TRecruitment;
 import com.pojo.TRecruitmentCompletion;
 import com.service.CollegeService;
 import com.service.RecruitmentService;
+import com.utils.DateConvert;
 import com.utils.IDUtils;
 
 @Controller
@@ -56,10 +57,12 @@ public class RecruitmentController {
 	 */
 	@RequestMapping(value="/sowingMapList",produces="application/json;charset=utf-8")
 	@ResponseBody
-	public String sowingMapList(String type) throws IOException{
-
-		type = new String(type.getBytes("ISO-8859-1"), "utf-8");
-
+	public String sowingMapList() throws IOException{
+//		String type
+//		type = new String(type.getBytes("ISO-8859-1"), "utf-8");
+		
+		String type="首页轮播";
+		
 		List<TRecruitment> imgList = recruitmentService.sowingMapList(type);
 		Gson gson = new Gson();
 		return gson.toJson(imgList);
@@ -120,15 +123,22 @@ public class RecruitmentController {
 	public String add(HttpServletRequest request1, HttpSession session) throws IOException {
 		/*前端 UI 的 form 表单里面有用到图片上传的时候，需要在这里对 request 作以下处理*/
 		MultipartHttpServletRequest request = (MultipartHttpServletRequest)request1;
+		
+        System.out.println(request.getParameter("title"));
+        System.out.println(request.getParameter("details"));
+        System.out.println(request.getParameter("author"));
+        System.out.println(request.getParameter("collegeId"));
+		
 		String id = IDUtils.getID().toString();/*实体类自动生成 id*/
 		String title = request.getParameter("title");
 		String author = request.getParameter("author");
-		String collegeId = request.getParameter("college");
-		String type = request.getParameter("type");
+		String collegeId = request.getParameter("collegeId");
+		String type = "普通信息";//小程序用户发布的招聘信息默认为“普通信息”
 		String details = request.getParameter("details");
 		String litimg = (String)session.getAttribute("imgName");
-		String time = new Date().toString();
-		
+		DateConvert convert = new DateConvert();
+		String time = convert.toString(new Date());
+
 		TRecruitment tRecruitment = new TRecruitment();
 		tRecruitment.setId(id);
 		tRecruitment.setTitle(title);
@@ -143,6 +153,17 @@ public class RecruitmentController {
 		
 		return "true";
 	}
+	
+	
+	@RequestMapping(value="queryByTitle",produces="application/json;charset=utf-8")
+	@ResponseBody
+	public String queryByTitle(String title)throws IOException{
+		title = new String(title.getBytes("ISO-8859-1"), "utf-8");
+		List<TRecruitment> list = recruitmentService.queryByTitle(title);
+		Gson gson = new Gson();
+		return gson.toJson(list);
+	}
+	
 	
 	/**
 	 * 删除当前行的信息

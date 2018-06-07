@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.pojo.TComplaint" >
     <id column="complaint_id" property="complaintId" jdbcType="VARCHAR" />
     <result column="id" property="id" jdbcType="VARCHAR" />
-    <result column="count" property="count" jdbcType="VARCHAR" />
+    <result column="openid" property="openid" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -65,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    complaint_id, id, count
+    complaint_id, id, openid
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pojo.TComplaintExample" >
     select
@@ -98,9 +98,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.pojo.TComplaint" >
-    insert into t_complaint (complaint_id, id, count
+    insert into t_complaint (complaint_id, id, openid
       )
-    values (#{complaintId,jdbcType=VARCHAR}, #{id,jdbcType=VARCHAR}, #{count,jdbcType=VARCHAR}
+    values (#{complaintId,jdbcType=VARCHAR}, #{id,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.pojo.TComplaint" >
@@ -112,8 +112,8 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="count != null" >
-        count,
+      <if test="openid != null" >
+        openid,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -123,8 +123,8 @@
       <if test="id != null" >
         #{id,jdbcType=VARCHAR},
       </if>
-      <if test="count != null" >
-        #{count,jdbcType=VARCHAR},
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -143,8 +143,8 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.count != null" >
-        count = #{record.count,jdbcType=VARCHAR},
+      <if test="record.openid != null" >
+        openid = #{record.openid,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -155,7 +155,7 @@
     update t_complaint
     set complaint_id = #{record.complaintId,jdbcType=VARCHAR},
       id = #{record.id,jdbcType=VARCHAR},
-      count = #{record.count,jdbcType=VARCHAR}
+      openid = #{record.openid,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -166,8 +166,8 @@
       <if test="id != null" >
         id = #{id,jdbcType=VARCHAR},
       </if>
-      <if test="count != null" >
-        count = #{count,jdbcType=VARCHAR},
+      <if test="openid != null" >
+        openid = #{openid,jdbcType=VARCHAR},
       </if>
     </set>
     where complaint_id = #{complaintId,jdbcType=VARCHAR}
@@ -175,7 +175,7 @@
   <update id="updateByPrimaryKey" parameterType="com.pojo.TComplaint" >
     update t_complaint
     set id = #{id,jdbcType=VARCHAR},
-      count = #{count,jdbcType=VARCHAR}
+      openid = #{openid,jdbcType=VARCHAR}
     where complaint_id = #{complaintId,jdbcType=VARCHAR}
   </update>
 </mapper>

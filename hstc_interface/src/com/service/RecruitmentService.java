@@ -48,4 +48,10 @@ public interface RecruitmentService {
 	 * @return
 	 */
 	public List<TRecruitment> querryByCollegeId(String collegeId);
+	/**
+	 * 根据招聘信息标题查找招聘信息
+	 * @param title
+	 * @return
+	 */
+	public List<TRecruitment> queryByTitle(String title);
 }

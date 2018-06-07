@@ -593,6 +593,76 @@ public class TRecruitmentExample {
             addCriterion("type not between", value1, value2, "type");
             return (Criteria) this;
         }
+
+        public Criteria andComplaintCountIsNull() {
+            addCriterion("complaint_count is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplaintCountIsNotNull() {
+            addCriterion("complaint_count is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplaintCountEqualTo(String value) {
+            addCriterion("complaint_count =", value, "complaintCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplaintCountNotEqualTo(String value) {
+            addCriterion("complaint_count <>", value, "complaintCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplaintCountGreaterThan(String value) {
+            addCriterion("complaint_count >", value, "complaintCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplaintCountGreaterThanOrEqualTo(String value) {
+            addCriterion("complaint_count >=", value, "complaintCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplaintCountLessThan(String value) {
+            addCriterion("complaint_count <", value, "complaintCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplaintCountLessThanOrEqualTo(String value) {
+            addCriterion("complaint_count <=", value, "complaintCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplaintCountLike(String value) {
+            addCriterion("complaint_count like", value, "complaintCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplaintCountNotLike(String value) {
+            addCriterion("complaint_count not like", value, "complaintCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplaintCountIn(List<String> values) {
+            addCriterion("complaint_count in", values, "complaintCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplaintCountNotIn(List<String> values) {
+            addCriterion("complaint_count not in", values, "complaintCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplaintCountBetween(String value1, String value2) {
+            addCriterion("complaint_count between", value1, value2, "complaintCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplaintCountNotBetween(String value1, String value2) {
+            addCriterion("complaint_count not between", value1, value2, "complaintCount");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

@@ -36,5 +36,8 @@ public interface TRecruitmentMapper {
     
     List<TRecruitment> query_id_title_litimg();
     
-    List<TRecruitment> queryLitimg(String type);
+    List<TRecruitment> queryLitimg(@Param("type") String type);
+    
+    List<TRecruitment> fuzzyQueryByTitle(@Param("title") String title);
+    
 }

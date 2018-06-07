@@ -35,7 +35,7 @@ public class UploadController {
 	 * @throws IOException
 	 */
 	@RequestMapping("/uploadImage")
-	public String test(MultipartFile file,HttpServletRequest request,String url) throws IOException{  
+	public String test(MultipartFile file,HttpServletRequest request, String url) throws IOException{  
 		String imgName = upload(file);		
 		HttpSession session = request.getSession();
         session.setAttribute("imgName", imgName);

@@ -244,6 +244,76 @@ public class TAdminExample {
             return (Criteria) this;
         }
 
+        public Criteria andAdminAccountIsNull() {
+            addCriterion("admin_account is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminAccountIsNotNull() {
+            addCriterion("admin_account is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminAccountEqualTo(String value) {
+            addCriterion("admin_account =", value, "adminAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminAccountNotEqualTo(String value) {
+            addCriterion("admin_account <>", value, "adminAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminAccountGreaterThan(String value) {
+            addCriterion("admin_account >", value, "adminAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminAccountGreaterThanOrEqualTo(String value) {
+            addCriterion("admin_account >=", value, "adminAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminAccountLessThan(String value) {
+            addCriterion("admin_account <", value, "adminAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminAccountLessThanOrEqualTo(String value) {
+            addCriterion("admin_account <=", value, "adminAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminAccountLike(String value) {
+            addCriterion("admin_account like", value, "adminAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminAccountNotLike(String value) {
+            addCriterion("admin_account not like", value, "adminAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminAccountIn(List<String> values) {
+            addCriterion("admin_account in", values, "adminAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminAccountNotIn(List<String> values) {
+            addCriterion("admin_account not in", values, "adminAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminAccountBetween(String value1, String value2) {
+            addCriterion("admin_account between", value1, value2, "adminAccount");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminAccountNotBetween(String value1, String value2) {
+            addCriterion("admin_account not between", value1, value2, "adminAccount");
+            return (Criteria) this;
+        }
+
         public Criteria andAdminPasswordIsNull() {
             addCriterion("admin_password is null");
             return (Criteria) this;
@@ -311,6 +381,76 @@ public class TAdminExample {
 
         public Criteria andAdminPasswordNotBetween(String value1, String value2) {
             addCriterion("admin_password not between", value1, value2, "adminPassword");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminIdentityIsNull() {
+            addCriterion("admin_identity is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminIdentityIsNotNull() {
+            addCriterion("admin_identity is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminIdentityEqualTo(String value) {
+            addCriterion("admin_identity =", value, "adminIdentity");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminIdentityNotEqualTo(String value) {
+            addCriterion("admin_identity <>", value, "adminIdentity");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminIdentityGreaterThan(String value) {
+            addCriterion("admin_identity >", value, "adminIdentity");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminIdentityGreaterThanOrEqualTo(String value) {
+            addCriterion("admin_identity >=", value, "adminIdentity");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminIdentityLessThan(String value) {
+            addCriterion("admin_identity <", value, "adminIdentity");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminIdentityLessThanOrEqualTo(String value) {
+            addCriterion("admin_identity <=", value, "adminIdentity");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminIdentityLike(String value) {
+            addCriterion("admin_identity like", value, "adminIdentity");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminIdentityNotLike(String value) {
+            addCriterion("admin_identity not like", value, "adminIdentity");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminIdentityIn(List<String> values) {
+            addCriterion("admin_identity in", values, "adminIdentity");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminIdentityNotIn(List<String> values) {
+            addCriterion("admin_identity not in", values, "adminIdentity");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminIdentityBetween(String value1, String value2) {
+            addCriterion("admin_identity between", value1, value2, "adminIdentity");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdminIdentityNotBetween(String value1, String value2) {
+            addCriterion("admin_identity not between", value1, value2, "adminIdentity");
             return (Criteria) this;
         }
     }

@@ -5,7 +5,7 @@ public class TComplaint {
 
     private String id;
 
-    private String count;
+    private String openid;
 
     public String getComplaintId() {
         return complaintId;
@@ -23,11 +23,11 @@ public class TComplaint {
         this.id = id == null ? null : id.trim();
     }
 
-    public String getCount() {
-        return count;
+    public String getOpenid() {
+        return openid;
     }
 
-    public void setCount(String count) {
-        this.count = count == null ? null : count.trim();
+    public void setOpenid(String openid) {
+        this.openid = openid == null ? null : openid.trim();
     }
 }
