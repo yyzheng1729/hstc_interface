@@ -231,4 +231,30 @@
       openid = #{openid,jdbcType=VARCHAR}
     where comment_id = #{commentId,jdbcType=VARCHAR}
   </update>
+  
+  
+  
+   <resultMap type="com.pojo.TComment" id="TCommentResultMap1">  
+	    <id property="commentId" column="comment_id" />  
+	    <result property="id" column="id" />  
+	    <result property="openid" column="openid" />  
+	    <result property="content" column="content" />  
+	        
+	    <association property="tUser" javaType="com.pojo.TUser" >  
+	        <id property="openid" column="openid" />  
+	        <result property="nickname" column="nickName" />  
+	        <result property="avatarurl" column="avatarUrl" />  
+	    </association>  
+	</resultMap>  
+	  
+	<select id="TCommentResultMap" resultMap="TCommentResultMap1">  
+	    SELECT  
+ 		c.comment_id,
+ 		c.content,
+ 		u.avatarUrl,
+ 		u.nickName
+	    FROM  
+	    `t_comment` c, `t_user` u
+	    where c.id=#{id} and c.openid = u.openid
+	</select> 
 </mapper>

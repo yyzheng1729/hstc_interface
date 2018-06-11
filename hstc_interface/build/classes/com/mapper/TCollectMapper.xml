@@ -178,4 +178,31 @@
       id = #{id,jdbcType=VARCHAR}
     where collect_id = #{collectId,jdbcType=VARCHAR}
   </update>
+  
+  
+   <resultMap type="com.pojo.TCollect" id="TCollectResultMap1">  
+	    <id property="collectId" column="collect_id" />  
+	    <result property="id" column="id" />  
+	    <result property="openid" column="openid" />
+	 
+	    <association property="tRecruitement" javaType="com.pojo.TRecruitment" >  
+	        <id property="id" column="id" />  
+	        <result property="title" column="title" />  
+	        <result property="details" column="details" />  
+	    </association>  
+	</resultMap>  
+  
+    <select id="TCollectResultMap" resultMap="TCollectResultMap1">  
+	    SELECT  
+	    c.collect_id,
+	    c.openid,
+	    c.id,
+	    r.title,
+	    r.details
+	    FROM  
+	    `t_collect` c  , `t_recruitment` r
+	    where openid = #{openid} and c.id = r.id
+	</select> 
+  
+  
 </mapper>

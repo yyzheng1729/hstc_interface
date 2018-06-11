@@ -17,7 +17,7 @@ public class UserController {
 	UserService userService;
 	
 	/**
-	 * ²åÈëÎ¢ĞÅµÇÂ¼ÓÃ»§ĞÅÏ¢
+	 * æ’å…¥å¾®ä¿¡ç™»å½•ç”¨æˆ·ä¿¡æ¯
 	 * @param openid
 	 * @param nickName
 	 * @param avatarUrl
@@ -29,19 +29,13 @@ public class UserController {
 	@RequestMapping(value="/insert_user", produces="application/json;charset=utf-8")
 	@ResponseBody
 	public String insert_user(String openid, String nickName, String avatarUrl, String province, String city ) throws IOException{
-		
+		//å½“æ”¾åˆ°æœåŠ¡å™¨ä¸Šæ—¶ï¼Œéœ€è¦æŠŠç¼–ç è½¬æ¢æ³¨é‡Šæ‰
 		nickName= new String(nickName.getBytes("ISO-8859-1"),"UTF-8");
 		province= new String(province.getBytes("ISO-8859-1"),"UTF-8");
 		city= new String(city.getBytes("ISO-8859-1"),"UTF-8");
 		
-		System.out.println(openid);
-		System.out.println(nickName);
-		System.out.println(avatarUrl);
-		System.out.println(province);
-		System.out.println(city);
-		
 		/**
-		 * ÏÈ²éÑ¯Êı¾İ¿âÖĞÊÇ·ñ´æÔÚ´ËÓÃ»§£¬ÈôÓĞÔò²»²åÈë£¬ÈôÃ»ÓĞ£¬Ôò°Ñµ±Ç°ÓÃ»§ĞÅÏ¢²åÈëÊı¾İ¿â
+		 * å…ˆæŸ¥è¯¢æ•°æ®åº“ä¸­æ˜¯å¦å­˜åœ¨æ­¤ç”¨æˆ·ï¼Œè‹¥æœ‰åˆ™ä¸æ’å…¥ï¼Œè‹¥æ²¡æœ‰ï¼Œåˆ™æŠŠå½“å‰ç”¨æˆ·æ’å…¥æ•°æ®åº“
 		 */
 		TUser userone = userService.queryByOpenid(openid);
 
@@ -59,6 +53,12 @@ public class UserController {
 		}
 	}
 	
+	/**
+	 * æ ¹æ®ç”¨æˆ·ç¼–å·æŸ¥è¯¢å¯¹åº”ç”¨æˆ·çš„ä¿¡æ¯
+	 * @param openid
+	 * @return
+	 * @throws IOException
+	 */
 	@RequestMapping(value="/queryByOpenid",produces="application/json;charset=utf-8")
 	@ResponseBody
 	public String queryByOpenid(String openid)throws IOException{

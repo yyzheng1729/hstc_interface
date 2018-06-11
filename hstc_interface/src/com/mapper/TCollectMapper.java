@@ -27,4 +27,6 @@ public interface TCollectMapper {
     int updateByPrimaryKeySelective(TCollect record);
 
     int updateByPrimaryKey(TCollect record);
+    
+    List<TCollect> TCollectResultMap(String openid);
 }

@@ -8,8 +8,19 @@ public class TComment {
     private String openid;
 
     private String content;
+    
+    private TUser tUser;
+    
 
-    public String getCommentId() {
+    public TUser gettUser() {
+		return tUser;
+	}
+
+	public void settUser(TUser tUser) {
+		this.tUser = tUser;
+	}
+
+	public String getCommentId() {
         return commentId;
     }
 

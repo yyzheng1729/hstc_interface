@@ -54,4 +54,10 @@ public interface RecruitmentService {
 	 * @return
 	 */
 	public List<TRecruitment> queryByTitle(String title);
+	/**
+	 * 根据发布人查询该发布人的所有发布
+	 * @param author
+	 * @return
+	 */
+	public List<TRecruitment> queryByAuthor(String author);
 }

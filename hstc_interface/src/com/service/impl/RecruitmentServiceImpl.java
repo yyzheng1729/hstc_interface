@@ -52,10 +52,13 @@ public class RecruitmentServiceImpl implements RecruitmentService {
 	}
 	
 	public List<TRecruitment> queryByTitle(String title){
-//		TRecruitmentExample example = new TRecruitmentExample();
-//		Criteria criteria = example.createCriteria();
-//		criteria.andTitleEqualTo(title);
-//		return tRecruitmentMapper.selectByExampleWithBLOBs(example);
 		return tRecruitmentMapper.fuzzyQueryByTitle(title);
+	}
+	
+	public List<TRecruitment> queryByAuthor(String author){
+		TRecruitmentExample example = new TRecruitmentExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andAuthorEqualTo(author);
+		return tRecruitmentMapper.selectByExampleWithBLOBs(example);
 	}
 }

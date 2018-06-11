@@ -6,8 +6,20 @@ public class TCollect {
     private String openid;
 
     private String id;
+    
+    private TRecruitment tRecruitement;
+    
+    
 
-    public String getCollectId() {
+    public TRecruitment gettRecruitement() {
+		return tRecruitement;
+	}
+
+	public void settRecruitement(TRecruitment tRecruitement) {
+		this.tRecruitement = tRecruitement;
+	}
+
+	public String getCollectId() {
         return collectId;
     }
 

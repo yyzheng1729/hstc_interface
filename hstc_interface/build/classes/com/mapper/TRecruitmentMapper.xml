@@ -329,7 +329,7 @@
   </select>
   
   <select id="queryLitimg" resultType="com.pojo.TRecruitment" >
-    select litimg
+    select id,litimg
     from t_recruitment
     where type=#{type}
   </select>
