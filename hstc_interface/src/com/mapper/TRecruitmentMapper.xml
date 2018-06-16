@@ -326,6 +326,7 @@
     select id,title,litimg
     from t_recruitment
     where complaint_count &lt; 10
+    order by id desc
   </select>
   
   <select id="queryLitimg" resultType="com.pojo.TRecruitment" >
